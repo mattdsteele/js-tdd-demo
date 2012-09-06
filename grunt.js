@@ -6,14 +6,15 @@ module.exports = function(grunt) {
   var backbone = [
     'lib/underscore.js',
     'lib/backbone.js'
-    ]
-  var prodCode = jquery.concat(backbone).concat([
+  ];
+  var appCode = [
     'src/app.js',
     'src/status.js',
     'src/statuses.js',
     'src/postStatus.js',
     'src/statusList.js'
-  ]);
+  ];
+  var prodCode = jquery.concat(backbone).concat(appCode);
 
   // Project configuration.
   grunt.initConfig({
@@ -26,7 +27,7 @@ module.exports = function(grunt) {
         'YOUR_NAME; Licensed MIT */'
     },
     lint: {
-      files: ['grunt.js', 'lib/**/*.js', 'test/**/*.js']
+      files: ['grunt.js', 'test/**/*.js'].concat(appCode)
     },
     jasmine: {
       src: prodCode,
@@ -77,6 +78,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-jasmine-runner');
   // Default task.
-  grunt.registerTask('default', 'lint jasmine concat min');
+  grunt.registerTask('default', 'jasmine concat min');
 
 };
