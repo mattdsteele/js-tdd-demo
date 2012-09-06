@@ -16,6 +16,7 @@ describe("Status List", function() {
   it('renders when collection is reset', function() {
     collection.reset([{text: 'Reset text'}]);
     var $li = $el.find('li');
+
     expect($li.length).toBe(1);
     expect($li.text()).toEqual('Reset text');
   });
@@ -23,6 +24,7 @@ describe("Status List", function() {
   it('displays newly added elements', function() {
     collection.add({text: 'Added text'});
     var $li = $el.find('li');
+
     expect($li.length).toBe(1);
     expect($li.text()).toEqual('Added text');
   });
