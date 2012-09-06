@@ -5,6 +5,8 @@ module.exports = function(grunt) {
     'lib/jquery-1.8.1.js',
     'lib/backbone.js',
     'src/app.js',
+    'src/status.js',
+    'src/statuses.js',
     'src/postStatus.js',
     'src/statusList.js'
   ];

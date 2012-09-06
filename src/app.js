@@ -1,3 +1,5 @@
 var Monologue = {
-  View: {}
+  Model: {},
+  View: {},
+  Collection: {}
 };
