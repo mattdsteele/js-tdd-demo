@@ -1,15 +1,19 @@
 /*global module:false*/
 module.exports = function(grunt) {
-  var prodCode = [
+  var jquery = [
+    'lib/jquery-1.8.1.js'
+  ];
+  var backbone = [
     'lib/underscore.js',
-    'lib/jquery-1.8.1.js',
-    'lib/backbone.js',
+    'lib/jquery-1.8.1.js'
+    ]
+  var prodCode = jquery.concat(backbone).concat([
     'src/app.js',
     'src/status.js',
     'src/statuses.js',
     'src/postStatus.js',
     'src/statusList.js'
-  ];
+  ]);
 
   // Project configuration.
   grunt.initConfig({
@@ -36,6 +40,12 @@ module.exports = function(grunt) {
       dist: {
         src: prodCode,
         dest: 'target/app.js'
+      },
+      cowboy: {
+        src: jquery.concat([
+          'src/cowboy.js'
+        ]),
+        dest: 'target/app-cowboy.js'
       }
     },
     min: {
