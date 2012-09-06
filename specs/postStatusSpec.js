@@ -14,5 +14,10 @@ describe('Post Status', function() {
       $el.trigger('submit');
       expect(collection.create).toHaveBeenCalledWith({text: "See, it's not so hard!"});
     });
+
+    it("clears the form", function() {
+      $el.trigger('submit');
+      expect($el.find('textarea').val()).toEqual('');
+    });
   });
 });
