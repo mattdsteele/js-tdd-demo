@@ -3,14 +3,14 @@ describe("Status List", function() {
 
   beforeEach(function() {
     $el = $('<div />');
-    collection = new (Backbone.Collection.extend({url: '/mock'}));
-    spyOn(collection, 'fetch');
+    collection = new (Backbone.Collection.extend({ localStorage: new Backbone.LocalStorage('coll') }));
+    localStorage.clear();
 
     view = new Monologue.View.StatusList({el: $el, collection: collection});
   });
 
   it('fetches records from the server', function() {
-    expect(collection.fetch).toHaveBeenCalled();
+    expect(collection.length).toBe(0);
   });
 
   it('renders when collection is reset', function() {

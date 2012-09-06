@@ -3,8 +3,8 @@ describe('Post Status', function() {
 
   beforeEach(function() {
     $el = $("<form><textarea>See, it's not so hard!</textarea></form>");
-    collection = new (Backbone.Collection.extend({url: '/mock'}));
-    spyOn(collection, 'create');
+    collection = new (Backbone.Collection.extend({ localStorage: new Backbone.LocalStorage('coll') }));
+    localStorage.clear();
 
     view = new Monologue.View.PostStatus({el: $el, collection: collection});
   });
@@ -12,7 +12,7 @@ describe('Post Status', function() {
   describe("submitting the form", function() {
     it("creates status when submitting the form", function() {
       $el.trigger('submit');
-      expect(collection.create).toHaveBeenCalledWith({text: "See, it's not so hard!"});
+      expect(collection.length).toBe(1);
     });
 
     it("clears the form", function() {
