@@ -1,5 +1,13 @@
 /*global module:false*/
 module.exports = function(grunt) {
+  var prodCode = [
+    'lib/underscore.js',
+    'lib/jquery-1.8.1.js',
+    'lib/backbone.js',
+    'src/app.js',
+    'src/postStatus.js',
+    'src/statusList.js'
+  ];
 
   // Project configuration.
   grunt.initConfig({
@@ -15,14 +23,7 @@ module.exports = function(grunt) {
       files: ['grunt.js', 'lib/**/*.js', 'test/**/*.js']
     },
     jasmine: {
-      src: [
-        'lib/underscore.js',
-        'lib/jquery-1.8.1.js',
-        'lib/backbone.js',
-        'src/app.js',
-        'src/postStatus.js',
-        'src/statusList.js'
-      ],
+      src: prodCode,
       specs: 'specs/**/*Spec.js',
       timeout: 1000,
       junit: {
@@ -31,17 +32,14 @@ module.exports = function(grunt) {
     },
     concat: {
       dist: {
-        src: [
-          '<banner:meta.banner>',
-          '<file_strip_banner:lib/FILE_NAME.js>'
-        ],
-        dest: 'dist/FILE_NAME.js'
+        src: prodCode,
+        dest: 'target/app.js'
       }
     },
     min: {
       dist: {
-        src: ['<banner:meta.banner>', '<config:concat.dist.dest>'],
-        dest: 'dist/FILE_NAME.min.js'
+        src: ['target/app.js'],
+        dest: 'target/app.min.js'
       }
     },
     watch: {
