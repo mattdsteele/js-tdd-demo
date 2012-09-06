@@ -5,7 +5,7 @@ module.exports = function(grunt) {
   ];
   var backbone = [
     'lib/underscore.js',
-    'lib/jquery-1.8.1.js'
+    'lib/backbone.js'
     ]
   var prodCode = jquery.concat(backbone).concat([
     'src/app.js',
@@ -49,10 +49,8 @@ module.exports = function(grunt) {
       }
     },
     min: {
-      dist: {
-        src: ['target/app.js'],
-        dest: 'target/app.min.js'
-      }
+      'target/app-cowboy.min.js': ['target/app-cowboy.js'],
+      'target/app.min.js': ['target/app.js']
     },
     watch: {
       files: '<config:lint.files>',
