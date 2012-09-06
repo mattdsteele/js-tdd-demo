@@ -5,7 +5,8 @@ module.exports = function(grunt) {
   ];
   var backbone = [
     'lib/underscore.js',
-    'lib/backbone.js'
+    'lib/backbone.js',
+    'lib/backbone.localStorage.js'
   ];
   var appCode = [
     'src/app.js',
