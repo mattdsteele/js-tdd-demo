@@ -1,6 +1,14 @@
 {
   "name": "js-tdd",
   "version": "0.1.0",
+  "dependencies": {
+    "express": "3.1.0",
+    "ejs": "*",
+    "less-middleware": "*"
+  },
+  "scripts": {
+    "start": "node app"
+  },
   "devDependencies": {
     "grunt": "~0.4.0",
     "grunt-contrib-jshint": "~0.2.0",

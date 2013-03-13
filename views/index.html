@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>Monologue</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <script src="target/app-cowboy.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
+    <script src="target/app.js"></script>
   </head>
   <body>
     <div class="navbar navbar-fixed-top">
@@ -27,4 +27,11 @@
       </ul>
     </div>
   </body>
+  <script>
+    jQuery(function($) {
+      var statuses = new Monologue.Collection.Statuses();
+
+      new Monologue.View.PostStatus({el: $('#new-status'), collection: statuses});
+      new Monologue.View.StatusList({el: $('#statuses'), collection: statuses});});
+  </script>
 </html>

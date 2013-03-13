@@ -1,7 +1,7 @@
 describe("statuses", function() {
   var statuses;
   beforeEach(function() {
-  statuses = new Monologue.Collection.Statuses();
+    statuses = new Monologue.Collection.Statuses();
   });
 
   it('has a Status as its model', function() {
