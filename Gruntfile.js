@@ -1,19 +1,19 @@
 /*global module:false*/
 module.exports = function(grunt) {
   var jquery = [
-    'lib/jquery-1.8.1.js'
+    'public/js/lib/jquery-1.8.1.js'
     ];
   var backbone = [
-    'lib/underscore.js',
-    'lib/backbone.js',
-    'lib/backbone.localStorage.js'
+    'public/js/lib/underscore.js',
+    'public/js/lib/backbone.js',
+    'public/js/lib/backbone.localStorage.js'
       ];
   var appCode = [
-    'src/app.js',
-    'src/status.js',
-    'src/statuses.js',
-    'src/postStatus.js',
-    'src/statusList.js'
+    'public/js/src/app.js',
+    'public/js/src/status.js',
+    'public/js/src/statuses.js',
+    'public/js/src/postStatus.js',
+    'public/js/src/statusList.js'
       ];
   var prodCode = jquery.concat(backbone).concat(appCode);
 
@@ -42,12 +42,12 @@ module.exports = function(grunt) {
         src: 'Gruntfile.js'
       },
       lib_test: {
-        src: ['src/**/*.js', 'spec/**/*.js']
+        src: ['public/js/src/**/*.js', 'spec/**/*.js']
       }
     },
     jasmine: {
       tests: {
-        src: 'src/**/*.js',
+        src: 'public/js/src/**/*.js',
         options: {
           specs: 'specs/**/*Spec.js',
           vendor: jquery.concat(backbone)
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
         dest: 'target/app.js'
       },
       cowboy: {
-        src: jquery.concat(['src/cowboy.js']),
+        src: jquery.concat(['public/js/src/cowboy.js']),
         dest: 'target/app-cowboy.js'
       }
     }
