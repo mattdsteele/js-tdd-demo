@@ -63,11 +63,18 @@ module.exports = function(grunt) {
         src: jquery.concat(['public/js/src/cowboy.js']),
         dest: 'target/app-cowboy.js'
       }
+    },
+    watch: {
+      scripts: {
+        files: ['public/**/*.js', 'src/**/*.js'],
+        tasks: ['concat']
+      }
     }
   });
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-concat');
 

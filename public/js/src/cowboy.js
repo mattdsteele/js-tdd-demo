@@ -2,12 +2,12 @@ jQuery(function($) {
   $('form').on('submit', function() {
     $.ajax({
       url: '/statuses',
-    type: 'POST',
-    dataType: 'json',
-    data: {text: $(this).find('textarea').val()},
-    success: function(data) {
-      $('#statuses').append('<li>' + data.text + '</li>');
-    }
+      type: 'POST',
+      dataType: 'json',
+      data: {text: $(this).find('textarea').val()},
+      success: function(data) {
+        $('#statuses').append('<li>' + data.text + '</li>');
+      }
     });
     return false;
   });
@@ -21,5 +21,5 @@ jQuery(function($) {
         $statuses.append('<li>' + data[i].text + '</li>');
       }
     }
-  })
+  });
 });
